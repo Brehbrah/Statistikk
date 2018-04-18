@@ -11,15 +11,26 @@ public class BinomiskFordeling {
 	
 	public static void main(String[] args) {
 		
-		String n = showInputDialog("Angi antall n-verdi:"); // 85
-		String x = showInputDialog("Angi antall x-enheter:"); //3
+		String n = showInputDialog("Angi antall n-verdi:"); 
+		String x = showInputDialog("Angi antall x-enheter:"); 
 		double p = parseDouble(showInputDialog("Angi p(A) verdi:"));
+		
 
 	 	final int N_MAX = parseInt(n);
 	 	final int X_MAX = parseInt(x);
 
 		int [] nArray = new int [N_MAX]; 
 		int [] xArray = new int [X_MAX];
+
+		
+		//System.out.println(pTall);
+
+
+		//System.out.println("P(x=" + X_MAX +") " + sum);
+
+		for(int i = 0; i < xArray.length; i++) {
+
+			nArray[i] = N_MAX;
 
 		int teller = antRekkeFølge(N_MAX, X_MAX);
 		int nevner = xFakultet(xArray, X_MAX);
@@ -28,8 +39,8 @@ public class BinomiskFordeling {
 		double pTall = Math.pow(p, X_MAX);
 		double pTall2 = Math.pow((1-p),(N_MAX-X_MAX));
 		double sum = (sumArray * pTall) * pTall2;
-		//System.out.println(pTall);
 		System.out.println(sum);
+		}
 	}
 
 	public static int antRekkeFølge(int n, int x) {
@@ -67,9 +78,7 @@ public class BinomiskFordeling {
 
 		int sum = 1;
 		for(int i = 1; i < array.length; i++) {
-			//int x = parseInt(showInputDialog("Angi antall x-verdi"));
 			sum = fakultet(MAX);
-			//System.out.println("x: " + sum);
 			break;
 		}
 		return sum;
